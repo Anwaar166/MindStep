@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website description (for SEO) -->
+    <meta name="description" content="MindStep is an interactive quiz platform where users can test their knowledge in Maths, General Knowledge, and Pak Studies with different difficulty levels.">
+
+    <!-- Keywords (SEO) -->
+    <meta name="keywords" content="quiz, online quiz, maths quiz, general knowledge, pak studies, learning platform">
+
+    <!-- Author -->
+    <meta name="QaziAnwaar Ahmed Jilani" content="MindStep">
+
+    <!-- Browser compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title -->
+    <title>MindStep</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="spinner-grow text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="blackScreen"></div>
+    <div class="mainSection">
+
+
+        <header>
+            <h1>MindStep</h1>
+        </header>
+
+
+        <div class="container">
+            <div class="section1">
+                <img src="homepageImage.png" alt="MindStep Image">
+            </div>
+
+            <div class="section2">
+                <p>Challenge your limits. Define your expertise.</p>
+                <div class="buttons">
+                    <button id="btn">Take Quiz Now</button>
+                    <button class="sample-button"><a href="#" class="sample-btn">Try Sample</a></button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Blur Overlay -->
+        <div class="blur"></div>
+
+        <!-- Popup -->
+        <div class="section3">
+            <h2>Course Selection</h2>
+            <a href="#">Pak Studies</a>
+            <a href="#">Maths</a>
+            <a href="#">General Knowledge</a>
+
+        </div>
+        <div class="section4">
+            <i class="fa-solid fa-arrow-left back-arrow"></i>
+            <h2>Skill Level</h2>
+            <a href="#">Basic</a>
+            <a href="#">Intermediate</a>
+            <a href="#">Expert</a>
+        </div>
+        <div class="section5">
+            <i class="fa-solid fa-arrow-left back-arrow-rules"></i>
+            <h2>Quiz Instructions</h2>
+
+            <div class="rules-box">
+
+            </div>
+
+            <button class="start-btn">Start Quiz</button>
+        </div>
+
+
+    </div>
+    <div class="timerBox">
+    <div class="timer" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Try to answer all questions before it runs out!">
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+    </div>
+    </div>
+    
+        <div class="section6-container">
+
+            <div class="main-content">
+
+                <button class="text-center mb-4" id="BackButton" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="By clicking On it You can End Tutorial Session">
+                    <i class="fa-solid fa-arrow-left"></i>Back
+                </button>
+
+                <div class="section6">
+
+                    <!-- Progress Bar -->
+                    <div class="progress mb-4" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="This progress bar shows how many questions you have answered.">
+
+                        <div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%">
+                            0%
+                        </div>
+                    </div>
+
+                    <!-- Question -->
+                    <div class="demo-question">
+                        <p id="questionText">
+                        </p>
+
+                        <div class="options" id="optionsContainer">
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="buttonSection">
+
+                        <button id="prevBtn" class="previous-btn">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Previous
+                        </button>
+
+                        <button id="flagBtn" class="flag-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Mark this question to review later.">
+                            Mark for Review ⭐
+                        </button>
+
+                        <button id="nextBtn" class="next-btn">
+                            Next
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <button class="submit-btn" style="display:none;">
+                            Submit & See Result
+                        </button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Review Section -->
+            <div class="reviewSection" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Here you can see marked questions. Click to jump directly to that question.">
+
+                <h4>Marked Questions:</h4>
+                <div id="reviewList"></div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="result-box">
+                <div class="result-content">
+                    <h2>Quiz Result</h2>
+                    <p class="score-text"></p>
+                    <div class="wrong-answers"></div>
+                    <button class="close-result">Close</button>
+                </div>
+
+            </div>
+           <div class="homeButtonSection">
+    <p>Go Back to Home Section</p>
+    <div class="homeButton">
+        <button class="home-button">
+            <i class="fa-solid fa-arrow-left back-arrow"></i> Go Back
+        </button>
+    </div>
+</div>
+        </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- My js file -->
+    <script src="script.js"></script>
+    <script src="generalKnowledgeArray.js"></script>
+    <script src="mathsArray.js"></script>
+    <script src="pakStudiesArray.js"></script>
+</body>
+
+</html>
